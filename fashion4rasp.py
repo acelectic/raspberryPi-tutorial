@@ -53,9 +53,13 @@ index = 0
 X = test_images
 Y = test_labels
 
+scores = loaded_model.evaluate(X, Y)
+print(scores)
+print(loaded_model.metrics_names)
+
 tmp = loaded_model.predict(X)
-scores = np.argmax(tmp)
-print(tmp.shape, scores)
+
+
 print('label:', train_labels[index], ':', class_names[train_labels[index]])
 print('predict:', np.argmax(tmp[index]),  ':', class_names[np.argmax(tmp[0])])
 # plt.figure()

@@ -2,6 +2,10 @@ import numpy as np
 import tensorflow as tf
 import tensorflow.keras as keras
 from tensorflow.keras.models import model_from_json
+import matplotlib.pyplot as plt
+
+class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
+               'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
 fashion_mnist = keras.datasets.fashion_mnist
 (train_images, train_labels), (test_images, test_labels) = fashion_mnist.load_data()
@@ -24,13 +28,18 @@ loaded_model.compile(optimizer=tf.train.AdamOptimizer(),
               loss='sparse_categorical_crossentropy',
               metrics=['accuracy'])
 
-X = test_images[:1,:,:,:]
-Y = test_labels[:1]
+index = 0
 
-# print(X,Y)
-# scores = model.evaluate(X, Y)
+X = test_images
+Y = test_labels
+
 tmp = loaded_model.predict(X)
 scores = np.argmax(tmp)
 print(tmp.shape, scores)
-print(np.argmax(tmp[0]))
-# print("%.2f%%" % (scores[1]*100))
+print('label:', train_labels[index], ':', class_names[train_labels[index]])
+print('predict:', np.argmax(tmp[index]),  ':', class_names[np.argmax(tmp[0])])
+# plt.figure()
+# plt.imshow(train_images[0].reshape((28, 28)), cmap=plt.cm.binary)
+# plt.show()
+# plt.colorbar()
+# plt.grid(False)

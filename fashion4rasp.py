@@ -16,12 +16,12 @@ train_images = train_images.reshape(60000, 28, 28, 1)
 test_images = test_images.reshape(10000, 28, 28, 1)
 
 # load json and create model
-json_file = open('model.json', 'r')
+json_file = open('/home/pi/model.json', 'r')
 loaded_model_json = json_file.read()
 json_file.close()
 loaded_model = model_from_json(loaded_model_json)
 # load weights into new model
-loaded_model.load_weights("model.h5")
+loaded_model.load_weights("/home/pi/model.h5")
 print("Loaded model from disk")
 
 loaded_model.compile(optimizer=tf.train.AdamOptimizer(),

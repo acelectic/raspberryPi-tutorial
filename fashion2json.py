@@ -25,7 +25,6 @@ model.compile(optimizer=tf.train.AdamOptimizer(),
               metrics=['accuracy'])
 
 # model.summary()
-
 history = model.fit(train_images, train_labels, batch_size=512, validation_data=(test_images, test_labels), epochs=50)
 
 model.save("model.h5")

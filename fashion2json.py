@@ -28,13 +28,5 @@ model.compile(optimizer=tf.train.AdamOptimizer(),
 
 history = model.fit(train_images, train_labels, batch_size=512, validation_data=(test_images, test_labels), epochs=50)
 
-# # serialize model to JSON
-# model_json = model.to_json()
-# with open("model.json", "w") as json_file:
-#     json_file.write(model_json)
-# # serialize weights to HDF5
-# model.save_weights("model.h5")
-# print("Saved model to disk")
-
 model.save("model.h5")
 print("Saved model to disk")

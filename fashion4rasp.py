@@ -3,7 +3,7 @@ import tensorflow as tf
 # import tensorflow.keras as keras
 import keras
 from keras.models import load_model, model_from_json
-# from tensorflow.keras.models import model_from_json, load_model
+from tensorflow.keras.models import model_from_json, load_model
 
 
 import matplotlib.pyplot as plt
